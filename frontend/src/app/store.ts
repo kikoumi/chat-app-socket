@@ -1,3 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "../feature/reducers";
 
-// export const store = configureStore({});
+/**
+ * ストアの登録
+ */
+export const store = configureStore({
+    reducer: rootReducer,
+});
