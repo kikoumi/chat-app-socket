@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Socket, io } from "socket.io-client";
+import { ChatArea } from "./Components/ChatArea";
+import { Header } from "./Components/Header";
+import { Sidebar } from "./Components/Sidebar";
 
 const socket: Socket = io(
     // サーバーのURLを指定
@@ -24,17 +27,10 @@ export const Chat = () => {
 
     return (
         <>
-            <h1>Chat-Page</h1>
-            <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-            />
-            <button onClick={() => handleSubmit()}>送信</button>
-            <div>
-                {list.map((chat) => (
-                    <div key={chat.message}>{chat.message}</div>
-                ))}
+            <Header />
+            <div className="flex m-0 content">
+                <Sidebar />
+                <ChatArea />
             </div>
         </>
     );
